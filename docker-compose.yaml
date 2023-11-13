@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  web:
+    container_name: "test_flaskapp"
+    build: .
+    ports:
+      - "127.0.0.1:5000:5000"
+
+  db:
+    image: postgres
+    restart: always
+    container_name: "test_postgresql"
+    environment:
+      POSTGRES_PASSWORD: admin12345
+      POSTGRES_USER: admin
+      POSTGRES_DB: testdb
+    ports:
+      - "127.0.0.1:6010:5432"
